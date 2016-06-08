@@ -46,19 +46,19 @@ class SARequestManager: NSObject {
                         artists.append(newArtist)
                     }
                     
-                    success(artists: artists)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        success(artists: artists)
+                    }
                     
                 } catch let error as NSError {
-                    failure(error: error)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        failure(error: error)
+                    }
                 }
             }
         }
         
         task.resume()
-        
-        dispatch_async(dispatch_get_main_queue()) {
-            // completion handler
-        }
     }
     
     func getArtistsWithCompletion(completion: () -> ()) {

@@ -18,13 +18,6 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginToSpotify(sender: UIButton) {
         
-        SARequestManager.sharedManager.getArtistsWithQuery("Porter Robinson", success:
-        { (artists) in
-            print(artists)
-            self.spotifyArtists = artists })
-        { (error) in
-            print(error) }
-        
         self.performSegueWithIdentifier("LoginToSearchSegue", sender: sender)
     }
 
