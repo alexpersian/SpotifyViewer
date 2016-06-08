@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Genome.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SpotifyViewer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SpotifyViewerTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SpotifyViewerUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PureJsonSerializer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6FDB04CA2B2CD10ED87CAB2478B693E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82F9D8213FB259E82344734044AD17B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>932B76CF74EA6FDE6B5E24909C6C33AF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB487C2E8B76EEA7B23C9ED3B1D8D07B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2F5667D3D74CA016E9FCED1245C2A46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

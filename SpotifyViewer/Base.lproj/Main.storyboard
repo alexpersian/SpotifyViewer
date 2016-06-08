@@ -1,13 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pFw-mg-zhz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
+        <scene sceneID="tk8-oR-0EL">
+            <objects>
+                <viewController id="pFw-mg-zhz" customClass="LoginViewController" customModule="SpotifyViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="raH-lz-ePf"/>
+                        <viewControllerLayoutGuide type="bottom" id="zi2-bz-XZr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NWG-qR-4it">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6O1-b0-VT4">
+                                <rect key="frame" x="147" y="272" width="307" height="55"/>
+                                <state key="normal" image="SpotifyLogin">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginToSpotify:" destination="pFw-mg-zhz" eventType="touchUpInside" id="g2c-k7-iAO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6O1-b0-VT4" firstAttribute="centerX" secondItem="NWG-qR-4it" secondAttribute="centerX" id="9Qw-Jz-wWw"/>
+                            <constraint firstItem="6O1-b0-VT4" firstAttribute="centerY" secondItem="NWG-qR-4it" secondAttribute="centerY" id="g13-uE-5le"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="LoginToSearchSegue" id="D4H-3k-0Yj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fxf-lD-gHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="-333"/>
+        </scene>
+        <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="SpotifyViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +52,39 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NPt-EC-fv0">
+                                <rect key="frame" x="20" y="66" width="560" height="514"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search for an artist..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="azi-FC-hbv">
+                                <rect key="frame" x="20" y="28" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="azi-FC-hbv" secondAttribute="trailing" id="XIO-SH-I1G"/>
+                            <constraint firstItem="NPt-EC-fv0" firstAttribute="top" secondItem="azi-FC-hbv" secondAttribute="bottom" constant="8" id="bTB-eV-7Xw"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="azi-FC-hbv" secondAttribute="leading" id="das-Kl-mwz"/>
+                            <constraint firstItem="azi-FC-hbv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="juU-R5-Iel"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="NPt-EC-fv0" secondAttribute="leading" id="kSw-d7-G4n"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NPt-EC-fv0" secondAttribute="bottom" constant="20" id="mqV-oJ-wV7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NPt-EC-fv0" secondAttribute="trailing" id="xyP-3l-BSx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="spotifyResultsView" destination="NPt-EC-fv0" id="hLz-eM-OHF"/>
+                        <outlet property="spotifySearchBar" destination="azi-FC-hbv" id="ujc-na-boM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="430"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SpotifyLogin" width="307" height="55"/>
+    </resources>
 </document>
