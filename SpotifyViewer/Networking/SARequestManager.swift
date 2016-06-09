@@ -10,6 +10,11 @@ import Foundation
 import Genome
 import PureJsonSerializer
 
+enum Result {
+    case Success(Array<SpotifyArtist>)
+    case Failure(NSError)
+}
+
 class SARequestManager: NSObject {
     
     static let sharedManager = SARequestManager()
@@ -21,22 +26,22 @@ class SARequestManager: NSObject {
         return session
     }()
     
-    func getArtistsWithQuery(query: String,
-                             success: (artists: Array<SpotifyArtist>) -> (),
-                             failure: (error: NSError) -> ()) {
+    func getArtistsWithQuery(query: String, completion: Result -> Void) {
         
         let queryString = query.stringByReplacingOccurrencesOfString(" ", withString: "%20")
-        guard let spotifyWebAPIURL = NSURL(string: "https://api.spotify.com/v1/search?q=\(queryString)&type=artist") else { print("Error parsing Spotify URL"); return }
+        guard let spotifyWebAPIURL = NSURL(string: "https://api.spotify.com/v1/search?q=\(queryString)&type=artist") else {
+            print("Error parsing Spotify URL")
+            return
+        }
         
         let task = session.dataTaskWithURL(spotifyWebAPIURL) { (data, response, error) in
-            
             if let error = error {
                 print("Error with data task: \(error)")
             } else if let data = data {
                 do {
+                    
                     var artists = [SpotifyArtist]()
                     let jsonFromData = try Json.deserialize(data)
-                    
                     
                     guard let rawArtists = jsonFromData["artists"]?["items"] else { print("Failure to parse JSON"); return }
                     
@@ -46,12 +51,12 @@ class SARequestManager: NSObject {
                     }
                     
                     dispatch_async(dispatch_get_main_queue()) {
-                        success(artists: artists)
+                        completion(.Success(artists))
                     }
                     
                 } catch let error as NSError {
                     dispatch_async(dispatch_get_main_queue()) {
-                        failure(error: error)
+                        completion(.Failure(error))
                     }
                 }
             }
@@ -60,7 +65,15 @@ class SARequestManager: NSObject {
         task.resume()
     }
     
-    func getArtistsWithCompletion(completion: () -> ()) {
+    func getArtistImagesFromID(artistID: String,
+                               success: (artistImages: Array<ArtistImageURL>) -> (),
+                               failure: (error: NSError) -> ()) {
+        
+    }
+    
+    func getArtistTopTracksFromID(artistID: String,
+                                  success: (topTracks: Array<ArtistTopTrack>) -> (),
+                                  failure: (error: NSError) -> ()) {
         
     }
 }

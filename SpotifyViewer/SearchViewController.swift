@@ -16,36 +16,36 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var spotifySession: SPTSession!
     var spotifyArtists: [SpotifyArtist]!
+    var selectedArtistIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        guard spotifyArtists != nil else { print("shit's all broke as fuck"); return }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "SearchToDetail") {
-            
+            guard spotifyArtists != nil,
+                let detailVC = segue.destinationViewController as? DetailViewController else {
+                    print("Artist array is empty")
+                    return
+            }
+            detailVC.artist = spotifyArtists[selectedArtistIndex]
         }
     }
     
-    @IBAction func returnToArtistSearch(segue: UIStoryboardSegue) {
-        
-    }
+    @IBAction func returnToArtistSearch(segue: UIStoryboardSegue) { }
 
-    // MARK: - UITableView
-    
+// MARK: - UITableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard spotifyArtists != nil else { return 1 }
+        guard spotifyArtists != nil else { return 0 }
         return spotifyArtists.count
     }
     
@@ -61,12 +61,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text != nil else { return }
+        selectedArtistIndex = indexPath.row
         performSegueWithIdentifier("SearchToDetailSegue", sender: nil)
     }
     
-    // MARK: - UITextField
-    
+// MARK: - UITextField
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         // maybe do active searching?
         return true
@@ -80,17 +79,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if self.spotifyArtists != nil {
             self.spotifyArtists.removeAll()
         }
-        SARequestManager.sharedManager.getArtistsWithQuery(searchQuery, success:
-        { (artists) in
-            self.spotifyArtists = artists
-            self.spotifyResultsView.reloadData()
+        
+        SARequestManager.sharedManager.getArtistsWithQuery(searchQuery, completion: { result in
+            switch result {
+            case .Success(let artists):
+                self.spotifyArtists = artists
+                self.spotifyResultsView.reloadData()
+            case .Failure(let error):
+                print(error)
+            }
             self.searchActivityIndicator.stopAnimating()
         })
-        { (error) in
-            print(error)
-            self.searchActivityIndicator.stopAnimating()
-        }
-        
+            
         return true
     }
 }

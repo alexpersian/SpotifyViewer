@@ -12,18 +12,21 @@ import Genome
 struct SpotifyArtist: MappableObject {
     
     let artistName: String
-    let artistURI: String
-//    let artistPicture: UIImage
-//    let artistAlbums: [String]
-//    let albumArtwork: [UIImage]
+    let artistID: String
+    var artistFollowers: Follower
+    let artistImageURLs: [ArtistImageURL]?
     
     init(map: Map) throws {
         artistName = try map.extract("name")
-        artistURI = try map.extract("uri")
+        artistID = try map.extract("id")
+        artistFollowers = try map.extract("followers")
+        artistImageURLs = try map.extract("images")
     }
     
     func sequence(map: Map) throws {
         try artistName ~> map["name"]
-        try artistURI ~> map["uri"]
+        try artistID ~> map["id"]
+        try artistFollowers ~> map["followers"]
+        try artistImageURLs ~> map["images"]
     }
 }
