@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var artistImage: UIImageView!
+    @IBOutlet weak var artistFollowers: UILabel!
     @IBOutlet weak var artistBio: UITextView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var playArtistSampleButton: UIButton!
@@ -24,7 +25,7 @@ class DetailViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+        loadArtistInformation()
     }
     
     func styleArtistButton() {
@@ -35,6 +36,17 @@ class DetailViewController: UIViewController {
     func styleArtistImage() {
         artistImage.layer.cornerRadius = artistImage.frame.size.width / 2
         artistImage.clipsToBounds = true
+    }
+    
+    func loadArtistInformation() {
+        guard artist != nil else { return }
+        print(artist)
+        
+        artistName.text = artist.artistName
+        let numFormatter = NSNumberFormatter()
+        numFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        guard let followerNumber = numFormatter.stringFromNumber(artist.artistFollowers.numberOfFollowers) else { return }
+        artistFollowers.text = artistFollowers.text?.stringByAppendingString("  \(followerNumber)")
     }
     
     @IBAction func playArtistSample(sender: UIButton) {

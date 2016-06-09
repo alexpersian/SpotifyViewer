@@ -54,7 +54,6 @@
 		3161CD7D1D0623C2005F38DE /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		3161CD7F1D070131005F38DE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3161CD811D070141005F38DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		3161CD891D07328F005F38DE /* SpotifyViewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpotifyViewer-Bridging-Header.h"; sourceTree = "<group>"; };
 		3161CD8D1D0739C3005F38DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		31AB8D1D1D06069500CA2F30 /* SpotifyViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AB8D201D06069500CA2F30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		31E213901D09CF9C00F90B46 /* Follower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		31E213921D09CFA600F90B46 /* ArtistImageURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistImageURL.swift; sourceTree = "<group>"; };
 		31E213941D09D0F700F90B46 /* ArtistTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTrack.swift; sourceTree = "<group>"; };
+		31FC01751D0A170D0093E784 /* SpotifyViewer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpotifyViewer-Bridging-Header.h"; sourceTree = "<group>"; };
 		6A64CD6D90759A6E1569E16D /* Pods-SpotifyViewerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewerTests/Pods-SpotifyViewerTests.release.xcconfig"; sourceTree = "<group>"; };
 		6C57F9B1BED8CA0C7B96462F /* Pods-SpotifyViewerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewerUITests/Pods-SpotifyViewerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		90E025850A310BF3255E136C /* Pods_SpotifyViewerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifyViewerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,7 +204,7 @@
 			children = (
 				31AB8D271D06069500CA2F30 /* Assets.xcassets */,
 				31AB8D2C1D06069500CA2F30 /* Info.plist */,
-				3161CD891D07328F005F38DE /* SpotifyViewer-Bridging-Header.h */,
+				31FC01751D0A170D0093E784 /* SpotifyViewer-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -662,7 +662,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderpersian.SpotifyViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SpotifyViewer/SpotifyViewer-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpotifyViewer/Supporting Files/SpotifyViewer-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -684,7 +684,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexanderpersian.SpotifyViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SpotifyViewer/SpotifyViewer-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpotifyViewer/Supporting Files/SpotifyViewer-Bridging-Header.h";
 			};
 			name = Release;
 		};

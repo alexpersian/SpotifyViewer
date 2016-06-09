@@ -27,7 +27,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "SearchToDetail") {
+        if (segue.identifier == "SearchToDetailSegue") {
             guard spotifyArtists != nil,
                 let detailVC = segue.destinationViewController as? DetailViewController else {
                     print("Artist array is empty")
