@@ -24,6 +24,9 @@
 		31E213911D09CF9C00F90B46 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E213901D09CF9C00F90B46 /* Follower.swift */; };
 		31E213931D09CFA600F90B46 /* ArtistImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E213921D09CFA600F90B46 /* ArtistImageURL.swift */; };
 		31E213951D09D0F700F90B46 /* ArtistTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E213941D09D0F700F90B46 /* ArtistTrack.swift */; };
+		55E13ED4753D5CBE17F99EE1 /* Pods_SpotifyViewerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E025850A310BF3255E136C /* Pods_SpotifyViewerUITests.framework */; };
+		7E46E4002D1D8F7EC0BE0F35 /* Pods_SpotifyViewerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FDB328AB0909E7005F8EA63 /* Pods_SpotifyViewerTests.framework */; };
+		C3B95F378FB9A37C429CEAF4 /* Pods_SpotifyViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B090A9082ADCF35702226066 /* Pods_SpotifyViewer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		105E40D50F6CAF5DFC142DFB /* Pods-SpotifyViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewer/Pods-SpotifyViewer.debug.xcconfig"; sourceTree = "<group>"; };
+		28803F4DC6C2552126C6356B /* Pods-SpotifyViewerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewerTests/Pods-SpotifyViewerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2FDB328AB0909E7005F8EA63 /* Pods_SpotifyViewerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifyViewerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30F7C651CBEBF86AFACD153B /* Pods-SpotifyViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewer/Pods-SpotifyViewer.release.xcconfig"; sourceTree = "<group>"; };
 		3161CD7D1D0623C2005F38DE /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		3161CD7F1D070131005F38DE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3161CD811D070141005F38DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -68,6 +75,11 @@
 		31E213901D09CF9C00F90B46 /* Follower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		31E213921D09CFA600F90B46 /* ArtistImageURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistImageURL.swift; sourceTree = "<group>"; };
 		31E213941D09D0F700F90B46 /* ArtistTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTrack.swift; sourceTree = "<group>"; };
+		6A64CD6D90759A6E1569E16D /* Pods-SpotifyViewerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewerTests/Pods-SpotifyViewerTests.release.xcconfig"; sourceTree = "<group>"; };
+		6C57F9B1BED8CA0C7B96462F /* Pods-SpotifyViewerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewerUITests/Pods-SpotifyViewerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		90E025850A310BF3255E136C /* Pods_SpotifyViewerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifyViewerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA812B08C04D5E4235567412 /* Pods-SpotifyViewerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewerUITests/Pods-SpotifyViewerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B090A9082ADCF35702226066 /* Pods_SpotifyViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifyViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,7 @@
 				3161CD821D070141005F38DE /* SystemConfiguration.framework in Frameworks */,
 				3161CD801D070131005F38DE /* AVFoundation.framework in Frameworks */,
 				3161CD7E1D0623C2005F38DE /* Spotify.framework in Frameworks */,
+				C3B95F378FB9A37C429CEAF4 /* Pods_SpotifyViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E46E4002D1D8F7EC0BE0F35 /* Pods_SpotifyViewerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E13ED4753D5CBE17F99EE1 /* Pods_SpotifyViewerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +119,9 @@
 				3161CD811D070141005F38DE /* SystemConfiguration.framework */,
 				3161CD7F1D070131005F38DE /* AVFoundation.framework */,
 				3161CD7D1D0623C2005F38DE /* Spotify.framework */,
+				B090A9082ADCF35702226066 /* Pods_SpotifyViewer.framework */,
+				2FDB328AB0909E7005F8EA63 /* Pods_SpotifyViewerTests.framework */,
+				90E025850A310BF3255E136C /* Pods_SpotifyViewerUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,6 +134,7 @@
 				31AB8D1F1D06069500CA2F30 /* SpotifyViewer */,
 				31AB8D341D06069500CA2F30 /* SpotifyViewerTests */,
 				31AB8D3F1D06069500CA2F30 /* SpotifyViewerUITests */,
+				9374B9DD4A409009323569DD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +217,19 @@
 				31CF6AF51D08B00400D96EAC /* DetailViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9374B9DD4A409009323569DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				105E40D50F6CAF5DFC142DFB /* Pods-SpotifyViewer.debug.xcconfig */,
+				30F7C651CBEBF86AFACD153B /* Pods-SpotifyViewer.release.xcconfig */,
+				28803F4DC6C2552126C6356B /* Pods-SpotifyViewerTests.debug.xcconfig */,
+				6A64CD6D90759A6E1569E16D /* Pods-SpotifyViewerTests.release.xcconfig */,
+				6C57F9B1BED8CA0C7B96462F /* Pods-SpotifyViewerUITests.debug.xcconfig */,
+				AA812B08C04D5E4235567412 /* Pods-SpotifyViewerUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -615,6 +647,7 @@
 		};
 		31AB8D461D06069500CA2F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 105E40D50F6CAF5DFC142DFB /* Pods-SpotifyViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -636,6 +669,7 @@
 		};
 		31AB8D471D06069500CA2F30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30F7C651CBEBF86AFACD153B /* Pods-SpotifyViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -656,6 +690,7 @@
 		};
 		31AB8D491D06069500CA2F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28803F4DC6C2552126C6356B /* Pods-SpotifyViewerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SpotifyViewerTests/Info.plist;
@@ -668,6 +703,7 @@
 		};
 		31AB8D4A1D06069500CA2F30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A64CD6D90759A6E1569E16D /* Pods-SpotifyViewerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SpotifyViewerTests/Info.plist;
@@ -680,6 +716,7 @@
 		};
 		31AB8D4C1D06069500CA2F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C57F9B1BED8CA0C7B96462F /* Pods-SpotifyViewerUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SpotifyViewerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -691,6 +728,7 @@
 		};
 		31AB8D4D1D06069500CA2F30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA812B08C04D5E4235567412 /* Pods-SpotifyViewerUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = SpotifyViewerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
