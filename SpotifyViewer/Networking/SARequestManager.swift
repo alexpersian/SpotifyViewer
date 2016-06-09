@@ -42,7 +42,6 @@ class SARequestManager: NSObject {
                     
                     for artist in rawArtists.arrayValue! {
                         let newArtist = try SpotifyArtist(js: artist)
-                        print(newArtist)
                         artists.append(newArtist)
                     }
                     

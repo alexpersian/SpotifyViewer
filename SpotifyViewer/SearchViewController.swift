@@ -21,7 +21,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         guard spotifyArtists != nil else { print("shit's all broke as fuck"); return }
-        print(spotifyArtists)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,8 +61,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("this row is dank: \(tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text)")
-        
+        guard tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text != nil else { return }
         performSegueWithIdentifier("SearchToDetailSegue", sender: nil)
     }
     
@@ -75,8 +73,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        print(textField.text)
-        
         searchActivityIndicator.hidden = false
         searchActivityIndicator.startAnimating()
         
