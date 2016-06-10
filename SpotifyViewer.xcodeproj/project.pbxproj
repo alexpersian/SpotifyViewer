@@ -20,6 +20,10 @@
 		31AB8D411D06069500CA2F30 /* SpotifyViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB8D401D06069500CA2F30 /* SpotifyViewerUITests.swift */; };
 		31AB8D541D06089100CA2F30 /* SpotifyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB8D531D06089100CA2F30 /* SpotifyArtist.swift */; };
 		31AB8D561D0608A000CA2F30 /* SARequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB8D551D0608A000CA2F30 /* SARequestManager.swift */; };
+		31BCB4BA1D0B555F00D44947 /* LastfmArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BCB4B91D0B555F00D44947 /* LastfmArtist.swift */; };
+		31BCB4BC1D0B556900D44947 /* ArtistBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BCB4BB1D0B556900D44947 /* ArtistBio.swift */; };
+		31BCB4BE1D0B562700D44947 /* LFRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BCB4BD1D0B562700D44947 /* LFRequestManager.swift */; };
+		31BCB4C11D0B6BB200D44947 /* UITextField+ReplaceText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BCB4C01D0B6BB200D44947 /* UITextField+ReplaceText.swift */; };
 		31CF6AF61D08B00400D96EAC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CF6AF51D08B00400D96EAC /* DetailViewController.swift */; };
 		31E213911D09CF9C00F90B46 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E213901D09CF9C00F90B46 /* Follower.swift */; };
 		31E213931D09CFA600F90B46 /* ArtistImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E213921D09CFA600F90B46 /* ArtistImageURL.swift */; };
@@ -70,6 +74,10 @@
 		31AB8D421D06069500CA2F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31AB8D531D06089100CA2F30 /* SpotifyArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyArtist.swift; sourceTree = "<group>"; };
 		31AB8D551D0608A000CA2F30 /* SARequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SARequestManager.swift; sourceTree = "<group>"; };
+		31BCB4B91D0B555F00D44947 /* LastfmArtist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastfmArtist.swift; sourceTree = "<group>"; };
+		31BCB4BB1D0B556900D44947 /* ArtistBio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistBio.swift; sourceTree = "<group>"; };
+		31BCB4BD1D0B562700D44947 /* LFRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LFRequestManager.swift; sourceTree = "<group>"; };
+		31BCB4C01D0B6BB200D44947 /* UITextField+ReplaceText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+ReplaceText.swift"; sourceTree = "<group>"; };
 		31CF6AF51D08B00400D96EAC /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		31E213901D09CF9C00F90B46 /* Follower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		31E213921D09CFA600F90B46 /* ArtistImageURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistImageURL.swift; sourceTree = "<group>"; };
@@ -151,6 +159,7 @@
 		31AB8D1F1D06069500CA2F30 /* SpotifyViewer */ = {
 			isa = PBXGroup;
 			children = (
+				31BCB4BF1D0B6B9200D44947 /* Extensions */,
 				31CF6AF41D08985300D96EAC /* Controllers */,
 				31AB8D4E1D06081800CA2F30 /* Models */,
 				31AB8D4F1D06081E00CA2F30 /* Networking */,
@@ -187,6 +196,8 @@
 				31E213941D09D0F700F90B46 /* ArtistTrack.swift */,
 				31E213901D09CF9C00F90B46 /* Follower.swift */,
 				31AB8D531D06089100CA2F30 /* SpotifyArtist.swift */,
+				31BCB4B91D0B555F00D44947 /* LastfmArtist.swift */,
+				31BCB4BB1D0B556900D44947 /* ArtistBio.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,8 +206,17 @@
 			isa = PBXGroup;
 			children = (
 				31AB8D551D0608A000CA2F30 /* SARequestManager.swift */,
+				31BCB4BD1D0B562700D44947 /* LFRequestManager.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		31BCB4BF1D0B6B9200D44947 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31BCB4C01D0B6BB200D44947 /* UITextField+ReplaceText.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		31CF6AF31D08947000D96EAC /* Supporting Files */ = {
@@ -499,11 +519,15 @@
 				31E213911D09CF9C00F90B46 /* Follower.swift in Sources */,
 				31AB8D561D0608A000CA2F30 /* SARequestManager.swift in Sources */,
 				31AB8D231D06069500CA2F30 /* SearchViewController.swift in Sources */,
+				31BCB4C11D0B6BB200D44947 /* UITextField+ReplaceText.swift in Sources */,
 				31CF6AF61D08B00400D96EAC /* DetailViewController.swift in Sources */,
+				31BCB4BA1D0B555F00D44947 /* LastfmArtist.swift in Sources */,
 				31E213951D09D0F700F90B46 /* ArtistTrack.swift in Sources */,
 				3161CD8E1D0739C3005F38DE /* LoginViewController.swift in Sources */,
+				31BCB4BC1D0B556900D44947 /* ArtistBio.swift in Sources */,
 				31E213931D09CFA600F90B46 /* ArtistImageURL.swift in Sources */,
 				31AB8D211D06069500CA2F30 /* AppDelegate.swift in Sources */,
+				31BCB4BE1D0B562700D44947 /* LFRequestManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

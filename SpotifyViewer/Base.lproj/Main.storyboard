@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6O1-b0-VT4">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6O1-b0-VT4">
                                 <rect key="frame" x="147" y="272" width="307" height="55"/>
                                 <state key="normal" image="SpotifyLogin">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,7 +124,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Zedd" translatesAutoresizingMaskIntoConstraints="NO" id="WFq-hF-Oar">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Placeholder Artist" translatesAutoresizingMaskIntoConstraints="NO" id="WFq-hF-Oar">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="336"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="392" id="NST-f6-DlT"/>
@@ -157,7 +157,7 @@
                                                 <segue destination="FZH-lh-W6f" kind="unwind" unwindAction="returnToArtistSearch:" id="3eg-I5-YW1"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTj-gA-TDv">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="40" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTj-gA-TDv">
                                             <rect key="frame" x="200" y="54" width="200" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="8NU-qk-cSi"/>
@@ -174,12 +174,12 @@
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="8NU-qk-cSi"/>
+                                                    <exclude reference="8NU-qk-cSi"/>
                                                     <include reference="SsH-0e-APx"/>
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Zedd" translatesAutoresizingMaskIntoConstraints="NO" id="ylv-uz-rdq">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Placeholder Artist" translatesAutoresizingMaskIntoConstraints="NO" id="ylv-uz-rdq">
                                             <rect key="frame" x="200" y="102" width="200" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="ylv-uz-rdq" secondAttribute="height" multiplier="1:1" id="NUJ-a3-ePt"/>
@@ -204,7 +204,7 @@
                                                 <constraint firstAttribute="height" constant="30" id="bdA-Rp-Qot"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -231,12 +231,12 @@
                                             <exclude reference="23x-yO-0pJ"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="SiS-6P-p42"/>
-                                            <exclude reference="GED-f6-F1e"/>
-                                            <exclude reference="Scd-kr-SRP"/>
                                             <exclude reference="7u4-Ia-55W"/>
                                             <exclude reference="MQq-wY-K6d"/>
                                             <exclude reference="evJ-O5-HT2"/>
+                                            <exclude reference="SiS-6P-p42"/>
+                                            <exclude reference="GED-f6-F1e"/>
+                                            <exclude reference="Scd-kr-SRP"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -244,12 +244,12 @@
                                             <include reference="23x-yO-0pJ"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="SiS-6P-p42"/>
-                                            <include reference="GED-f6-F1e"/>
-                                            <include reference="Scd-kr-SRP"/>
                                             <include reference="7u4-Ia-55W"/>
                                             <include reference="MQq-wY-K6d"/>
                                             <include reference="evJ-O5-HT2"/>
+                                            <include reference="SiS-6P-p42"/>
+                                            <include reference="GED-f6-F1e"/>
+                                            <include reference="Scd-kr-SRP"/>
                                         </mask>
                                     </variation>
                                 </view>
@@ -274,15 +274,7 @@
                                     </mask>
                                 </variation>
                             </visualEffectView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBL-RA-mTc">
-                                <rect key="frame" x="20" y="344" width="560" height="236"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdI-ln-ejL">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdI-ln-ejL">
                                 <rect key="frame" x="185" y="308" width="230" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.85038495063781738" blue="0.35192570090293884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -309,6 +301,13 @@
                                     <action selector="playArtistSample:" destination="OFl-2t-xxc" eventType="touchUpInside" id="R8Y-uZ-bI2"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Sorry, artist biography is not available." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBL-RA-mTc">
+                                <rect key="frame" x="20" y="344" width="560" height="236"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -316,18 +315,19 @@
                             <constraint firstItem="UBL-RA-mTc" firstAttribute="top" secondItem="mdI-ln-ejL" secondAttribute="bottom" constant="8" id="8MA-TC-kXO"/>
                             <constraint firstItem="8UI-iy-fo2" firstAttribute="bottom" secondItem="WFq-hF-Oar" secondAttribute="bottom" id="8Nv-28-o0a"/>
                             <constraint firstItem="8UI-iy-fo2" firstAttribute="leading" secondItem="plm-aQ-0XQ" secondAttribute="leadingMargin" constant="-20" id="ElN-XP-oC0"/>
-                            <constraint firstItem="mdI-ln-ejL" firstAttribute="top" secondItem="23x-yO-0pJ" secondAttribute="bottom" constant="14" id="KsE-Tf-Ie9"/>
                             <constraint firstItem="ZEa-sU-39E" firstAttribute="top" secondItem="UBL-RA-mTc" secondAttribute="bottom" constant="20" id="PBO-vH-I5W"/>
                             <constraint firstItem="mdI-ln-ejL" firstAttribute="centerX" secondItem="23x-yO-0pJ" secondAttribute="centerX" id="RHu-Kw-5rW"/>
                             <constraint firstItem="WFq-hF-Oar" firstAttribute="leading" secondItem="plm-aQ-0XQ" secondAttribute="leadingMargin" constant="-20" id="Ugi-xI-HcS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UBL-RA-mTc" secondAttribute="trailing" id="ZnW-uB-0rA"/>
-                            <constraint firstItem="UBL-RA-mTc" firstAttribute="top" secondItem="8UI-iy-fo2" secondAttribute="bottom" constant="33" id="bPJ-lQ-dis"/>
+                            <constraint firstItem="UBL-RA-mTc" firstAttribute="top" secondItem="mdI-ln-ejL" secondAttribute="bottom" constant="14" id="bcA-9D-2sE"/>
                             <constraint firstItem="mdI-ln-ejL" firstAttribute="centerX" secondItem="plm-aQ-0XQ" secondAttribute="centerX" id="eMS-cY-yTJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="UBL-RA-mTc" secondAttribute="leading" id="i66-Rv-Ye8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8UI-iy-fo2" secondAttribute="trailing" constant="-20" id="iR6-xl-vaE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WFq-hF-Oar" secondAttribute="trailing" constant="-20" id="qiH-1b-lJB"/>
                             <constraint firstItem="UBL-RA-mTc" firstAttribute="top" secondItem="8UI-iy-fo2" secondAttribute="bottom" constant="8" id="sAS-yE-qiE"/>
+                            <constraint firstItem="mdI-ln-ejL" firstAttribute="top" secondItem="8UI-iy-fo2" secondAttribute="bottom" constant="-25" id="u0G-d6-T1O"/>
                             <constraint firstItem="WFq-hF-Oar" firstAttribute="top" secondItem="KiJ-P0-u89" secondAttribute="bottom" constant="-20" id="xPB-Yw-vtl"/>
+                            <constraint firstItem="mdI-ln-ejL" firstAttribute="centerX" secondItem="plm-aQ-0XQ" secondAttribute="centerX" id="zGU-pH-P8O"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -341,15 +341,16 @@
                                 <exclude reference="Ugi-xI-HcS"/>
                                 <exclude reference="qiH-1b-lJB"/>
                                 <exclude reference="xPB-Yw-vtl"/>
-                                <exclude reference="KsE-Tf-Ie9"/>
-                                <exclude reference="RHu-Kw-5rW"/>
-                                <exclude reference="eMS-cY-yTJ"/>
                                 <exclude reference="8MA-TC-kXO"/>
                                 <exclude reference="ZnW-uB-0rA"/>
-                                <exclude reference="bPJ-lQ-dis"/>
+                                <exclude reference="bcA-9D-2sE"/>
                                 <exclude reference="i66-Rv-Ye8"/>
                                 <exclude reference="sAS-yE-qiE"/>
                                 <exclude reference="PBO-vH-I5W"/>
+                                <exclude reference="RHu-Kw-5rW"/>
+                                <exclude reference="eMS-cY-yTJ"/>
+                                <exclude reference="u0G-d6-T1O"/>
+                                <exclude reference="zGU-pH-P8O"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -364,20 +365,21 @@
                                 <include reference="Ugi-xI-HcS"/>
                                 <include reference="qiH-1b-lJB"/>
                                 <include reference="xPB-Yw-vtl"/>
-                                <include reference="KsE-Tf-Ie9"/>
-                                <include reference="RHu-Kw-5rW"/>
-                                <exclude reference="eMS-cY-yTJ"/>
                                 <exclude reference="8MA-TC-kXO"/>
                                 <include reference="ZnW-uB-0rA"/>
-                                <include reference="bPJ-lQ-dis"/>
+                                <include reference="bcA-9D-2sE"/>
                                 <include reference="i66-Rv-Ye8"/>
                                 <exclude reference="sAS-yE-qiE"/>
                                 <include reference="PBO-vH-I5W"/>
+                                <exclude reference="RHu-Kw-5rW"/>
+                                <exclude reference="eMS-cY-yTJ"/>
+                                <include reference="u0G-d6-T1O"/>
+                                <include reference="zGU-pH-P8O"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="artistBio" destination="UBL-RA-mTc" id="Xbt-I8-gSl"/>
+                        <outlet property="artistBio" destination="UBL-RA-mTc" id="wGW-7b-iwh"/>
                         <outlet property="artistFollowers" destination="23x-yO-0pJ" id="R6J-8m-S4e"/>
                         <outlet property="artistImage" destination="ylv-uz-rdq" id="1mw-1G-9fb"/>
                         <outlet property="artistName" destination="GTj-gA-TDv" id="JFE-ue-ZMa"/>
@@ -393,7 +395,7 @@
     </scenes>
     <resources>
         <image name="Back" width="30" height="30"/>
+        <image name="Placeholder Artist" width="229" height="229"/>
         <image name="SpotifyLogin" width="307" height="55"/>
-        <image name="Zedd" width="1000" height="1000"/>
     </resources>
 </document>

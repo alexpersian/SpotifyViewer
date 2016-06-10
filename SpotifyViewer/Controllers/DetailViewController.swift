@@ -26,6 +26,8 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         loadArtistInformation()
+        loadArtistImage()
+        loadArtistBio()
     }
     
     func styleArtistButton() {
@@ -40,8 +42,6 @@ class DetailViewController: UIViewController {
     
     func loadArtistInformation() {
         guard artist != nil else { return }
-        print(artist)
-        
         artistName.text = artist.artistName
         let numFormatter = NSNumberFormatter()
         numFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -49,7 +49,34 @@ class DetailViewController: UIViewController {
         artistFollowers.text = artistFollowers.text?.stringByAppendingString("  \(followerNumber)")
     }
     
+    func loadArtistImage() {
+        guard artist != nil,
+            let imageURL = artist.artistImageURLs?.first?.artistImageURL else { return }
+        SARequestManager.sharedManager.getArtistImageFromURL(imageURL) { result in
+            switch result {
+            case .Success(let image):
+                self.artistImage.image = image
+                self.backgroundImageView.image = image
+            case .Failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func loadArtistBio() {
+        guard artist != nil else { return }
+        LFRequestManager.sharedManager.getArtistBioWithQuery(artist.artistName) { (result) in
+            switch result {
+            case .Success(let lfArtistBio):
+                self.artistBio.setTextWithExistingAttributes(lfArtistBio.bioSummary)
+            case .Failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     @IBAction func playArtistSample(sender: UIButton) {
         print("playing artist")
+        //TODO: add track playing functionality
     }
 }

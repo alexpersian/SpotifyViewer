@@ -66,11 +66,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 // MARK: - UITextField
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        // maybe do active searching?
-        return true
-    }
-    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         searchActivityIndicator.hidden = false
         searchActivityIndicator.startAnimating()
@@ -86,7 +81,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.spotifyArtists = artists
                 self.spotifyResultsView.reloadData()
             case .Failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
             self.searchActivityIndicator.stopAnimating()
         })

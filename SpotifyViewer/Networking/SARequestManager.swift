@@ -10,8 +10,13 @@ import Foundation
 import Genome
 import PureJsonSerializer
 
-enum Result {
+enum ArtistResult {
     case Success(Array<SpotifyArtist>)
+    case Failure(NSError)
+}
+
+enum ImageResult {
+    case Success(UIImage)
     case Failure(NSError)
 }
 
@@ -26,7 +31,7 @@ class SARequestManager: NSObject {
         return session
     }()
     
-    func getArtistsWithQuery(query: String, completion: Result -> Void) {
+    func getArtistsWithQuery(query: String, completion: ArtistResult -> Void) {
         
         let queryString = query.stringByReplacingOccurrencesOfString(" ", withString: "%20")
         guard let spotifyWebAPIURL = NSURL(string: "https://api.spotify.com/v1/search?q=\(queryString)&type=artist") else {
@@ -34,7 +39,7 @@ class SARequestManager: NSObject {
             return
         }
         
-        let task = session.dataTaskWithURL(spotifyWebAPIURL) { (data, response, error) in
+        let _ = session.dataTaskWithURL(spotifyWebAPIURL) { (data, response, error) in
             if let error = error {
                 print("Error with data task: \(error)")
             } else if let data = data {
@@ -60,15 +65,21 @@ class SARequestManager: NSObject {
                     }
                 }
             }
-        }
-        
-        task.resume()
+        }.resume()
     }
     
-    func getArtistImagesFromID(artistID: String,
-                               success: (artistImages: Array<ArtistImageURL>) -> (),
-                               failure: (error: NSError) -> ()) {
-        
+    func getArtistImageFromURL(imageURL: String, completion: ImageResult -> Void) {
+        guard let spotifyImageURL = NSURL(string: imageURL) else { return }
+        let _ = session.dataTaskWithURL(spotifyImageURL) { (data, response, error) in
+            if let error = error {
+                completion(.Failure(error))
+            } else if let data = data {
+                guard let image = UIImage(data: data) else { print("image process failed"); return }
+                dispatch_async(dispatch_get_main_queue()) {
+                    completion(.Success(image))
+                }
+            }
+        }.resume()
     }
     
     func getArtistTopTracksFromID(artistID: String,
