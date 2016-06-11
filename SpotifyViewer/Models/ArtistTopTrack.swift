@@ -11,13 +11,13 @@ import Genome
 
 struct ArtistTopTrack: MappableObject {
     
-    let topTrackURI: String
+    let previewURL: String
     
     init(map: Map) throws {
-        topTrackURI = try map.extract("uri")
+        previewURL = try map.extract("preview_url")
     }
     
     func sequence(map: Map) throws {
-        try topTrackURI ~> map["uri"]
+        try previewURL ~> map["preview_url"]
     }
 }

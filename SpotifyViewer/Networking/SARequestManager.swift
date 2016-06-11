@@ -20,6 +20,11 @@ enum ImageResult {
     case Failure(NSError)
 }
 
+enum TrackResult {
+    case Success(ArtistTopTrack)
+    case Failure(NSError)
+}
+
 class SARequestManager: NSObject {
     
     static let sharedManager = SARequestManager()
@@ -32,7 +37,6 @@ class SARequestManager: NSObject {
     }()
     
     func getArtistsWithQuery(query: String, completion: ArtistResult -> Void) {
-        
         let queryString = query.stringByReplacingOccurrencesOfString(" ", withString: "%20")
         guard let spotifyWebAPIURL = NSURL(string: "https://api.spotify.com/v1/search?q=\(queryString)&type=artist") else {
             print("Error parsing Spotify URL")
@@ -44,7 +48,6 @@ class SARequestManager: NSObject {
                 print("Error with data task: \(error)")
             } else if let data = data {
                 do {
-                    
                     var artists = [SpotifyArtist]()
                     let jsonFromData = try Json.deserialize(data)
                     
@@ -82,9 +85,26 @@ class SARequestManager: NSObject {
         }.resume()
     }
     
-    func getArtistTopTracksFromID(artistID: String,
-                                  success: (topTracks: Array<ArtistTopTrack>) -> (),
-                                  failure: (error: NSError) -> ()) {
-        
+    func getArtistTopTrackFromID(artistID: String, completion: TrackResult -> Void) {
+        guard let urlString = NSURL(string:"https://api.spotify.com/v1/artists/\(artistID)/top-tracks?country=US") else { return }
+        let _ = session.dataTaskWithURL(urlString) { (data, response, error) in
+            if let error = error {
+                print("Error with data task: \(error.localizedDescription)")
+            } else if let data = data {
+                do {
+                    let jsonData = try Json.deserialize(data)
+                    guard let track = jsonData["tracks"]?[0] else { print("error parsing json"); return }
+                    
+                    let artistTopTrack = try ArtistTopTrack(js: track)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completion(.Success(artistTopTrack))
+                    }
+                } catch let error as NSError {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completion(.Failure(error))
+                    }
+                }
+            }
+        }.resume()
     }
 }

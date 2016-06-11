@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 class DetailViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var playArtistSampleButton: UIButton!
     
     var artist: SpotifyArtist!
+    var player: AVPlayer!
     
     override func viewDidLoad() {
         styleArtistImage()
@@ -75,8 +77,23 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func fetchArtistTopTrack() {
+        guard artist != nil else { return }
+        SARequestManager.sharedManager.getArtistTopTrackFromID(artist.artistID) { (result) in
+            switch result {
+            case .Success(let track):
+                guard let trackURL = NSURL(string: track.previewURL) else { return }
+                let playerItem = AVPlayerItem(URL: trackURL)
+                self.player = AVPlayer(playerItem: playerItem)
+                self.player.play()
+            case .Failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     @IBAction func playArtistSample(sender: UIButton) {
         print("playing artist")
-        //TODO: add track playing functionality
+        fetchArtistTopTrack()
     }
 }
