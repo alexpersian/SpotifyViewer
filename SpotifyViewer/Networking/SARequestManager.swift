@@ -63,6 +63,7 @@ class SARequestManager: NSObject {
                     }
                     
                 } catch let error as NSError {
+                    
                     dispatch_async(dispatch_get_main_queue()) {
                         completion(.Failure(error))
                     }
@@ -78,6 +79,7 @@ class SARequestManager: NSObject {
                 completion(.Failure(error))
             } else if let data = data {
                 guard let image = UIImage(data: data) else { print("image process failed"); return }
+                
                 dispatch_async(dispatch_get_main_queue()) {
                     completion(.Success(image))
                 }
@@ -94,12 +96,13 @@ class SARequestManager: NSObject {
                 do {
                     let jsonData = try Json.deserialize(data)
                     guard let track = jsonData["tracks"]?[0] else { print("error parsing json"); return }
-                    
                     let artistTopTrack = try ArtistTopTrack(js: track)
+                    
                     dispatch_async(dispatch_get_main_queue()) {
                         completion(.Success(artistTopTrack))
                     }
                 } catch let error as NSError {
+                    
                     dispatch_async(dispatch_get_main_queue()) {
                         completion(.Failure(error))
                     }

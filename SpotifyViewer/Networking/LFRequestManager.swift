@@ -43,10 +43,12 @@ class LFRequestManager: NSObject {
                     guard let bio = jsonData["artist"]?["bio"] else { print("error parsing json"); return }
                     let artistBio = try ArtistBio(js: bio)
                     dispatch_async(dispatch_get_main_queue()) {
+                        
                         completion(.Success(artistBio))
                     }
                 } catch let error as NSError {
                     dispatch_async(dispatch_get_main_queue()) {
+                        
                         completion(.Failure(error))
                     }
                 }
