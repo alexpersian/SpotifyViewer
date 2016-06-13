@@ -13,7 +13,7 @@ struct SpotifyArtist: MappableObject {
     
     let artistName: String
     let artistID: String
-    var artistFollowers: Follower
+    var artistFollowers: ArtistFollowers
     let artistImageURLs: [ArtistImageURL]?
     
     init(map: Map) throws {

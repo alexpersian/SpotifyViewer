@@ -74,7 +74,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g3m-Lx-uMY" id="zuJ-aO-ayf">
-                                            <rect key="frame" x="0.0" y="0.0" width="527" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="527" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -312,6 +312,7 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="8UI-iy-fo2" firstAttribute="top" secondItem="KiJ-P0-u89" secondAttribute="bottom" constant="-20" id="2cD-yQ-64c"/>
                             <constraint firstItem="UBL-RA-mTc" firstAttribute="top" secondItem="mdI-ln-ejL" secondAttribute="bottom" constant="8" id="8MA-TC-kXO"/>
@@ -379,6 +380,9 @@
                                 <include reference="zGU-pH-P8O"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ahs-VQ-5Y4" appends="YES" id="O7A-r0-iHZ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="artistBio" destination="UBL-RA-mTc" id="wGW-7b-iwh"/>
@@ -391,6 +395,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1b-58-MNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="FZH-lh-W6f" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="right" id="ahs-VQ-5Y4">
+                    <connections>
+                        <segue destination="FZH-lh-W6f" kind="unwind" unwindAction="returnToArtistSearch:" id="qf9-pg-Iqc"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="921" y="429.75"/>
         </scene>

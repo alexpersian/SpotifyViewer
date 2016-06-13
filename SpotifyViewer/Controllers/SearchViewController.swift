@@ -17,6 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var spotifySession: SPTSession!
     var spotifyArtists: [SpotifyArtist]!
     var selectedArtistIndex = 0
+    let transitionManager = TransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     return
             }
             detailVC.artist = spotifyArtists[selectedArtistIndex]
+            
+            detailVC.transitioningDelegate = self.transitionManager
         }
     }
     
@@ -85,7 +88,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             self.searchActivityIndicator.stopAnimating()
         })
-            
+        
+        self.spotifySearchBar.endEditing(true)
+        
         return true
     }
 }

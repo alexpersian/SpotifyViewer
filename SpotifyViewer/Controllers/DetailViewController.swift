@@ -32,6 +32,10 @@ class DetailViewController: UIViewController {
         loadArtistBio()
     }
     
+    func setupGestureRecognizers() {
+        
+    }
+    
     func styleArtistButton() {
         playArtistSampleButton.layer.cornerRadius = playArtistSampleButton.frame.size.height / 2
         playArtistSampleButton.clipsToBounds = true

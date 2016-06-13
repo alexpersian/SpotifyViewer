@@ -9,7 +9,7 @@
 import Foundation
 import Genome
 
-struct Follower: MappableObject {
+struct ArtistFollowers: MappableObject {
     
     let numberOfFollowers: Int
     
