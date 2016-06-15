@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3123A10B1D11CBF100859104 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3123A10A1D11CBF100859104 /* BaseModel.swift */; };
+		314D6DE71D11E64700D3AC43 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314D6DE61D11E64700D3AC43 /* DBManager.swift */; };
 		3161CD7E1D0623C2005F38DE /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3161CD7D1D0623C2005F38DE /* Spotify.framework */; };
 		3161CD801D070131005F38DE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3161CD7F1D070131005F38DE /* AVFoundation.framework */; };
 		3161CD821D070141005F38DE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3161CD811D070141005F38DE /* SystemConfiguration.framework */; };
@@ -56,6 +58,8 @@
 		28803F4DC6C2552126C6356B /* Pods-SpotifyViewerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewerTests/Pods-SpotifyViewerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2FDB328AB0909E7005F8EA63 /* Pods_SpotifyViewerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifyViewerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F7C651CBEBF86AFACD153B /* Pods-SpotifyViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyViewer/Pods-SpotifyViewer.release.xcconfig"; sourceTree = "<group>"; };
+		3123A10A1D11CBF100859104 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		314D6DE61D11E64700D3AC43 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		3161CD7D1D0623C2005F38DE /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		3161CD7F1D070131005F38DE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3161CD811D070141005F38DE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -195,11 +199,13 @@
 		31AB8D4E1D06081800CA2F30 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3123A10A1D11CBF100859104 /* BaseModel.swift */,
+				314D6DE61D11E64700D3AC43 /* DBManager.swift */,
 				31AB8D531D06089100CA2F30 /* SpotifyArtist.swift */,
+				31E213901D09CF9C00F90B46 /* ArtistFollowers.swift */,
 				31E213921D09CFA600F90B46 /* ArtistImageURL.swift */,
 				31E213941D09D0F700F90B46 /* ArtistTopTrack.swift */,
 				31BCB4BB1D0B556900D44947 /* ArtistBio.swift */,
-				31E213901D09CF9C00F90B46 /* ArtistFollowers.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 			files = (
 				31AB8D541D06089100CA2F30 /* SpotifyArtist.swift in Sources */,
 				31E213911D09CF9C00F90B46 /* ArtistFollowers.swift in Sources */,
+				3123A10B1D11CBF100859104 /* BaseModel.swift in Sources */,
 				31F0F9A61D0F32B3007F5D79 /* TransitionManager.swift in Sources */,
 				31AB8D561D0608A000CA2F30 /* SARequestManager.swift in Sources */,
 				31AB8D231D06069500CA2F30 /* SearchViewController.swift in Sources */,
@@ -528,6 +535,7 @@
 				31CF6AF61D08B00400D96EAC /* DetailViewController.swift in Sources */,
 				31E213951D09D0F700F90B46 /* ArtistTopTrack.swift in Sources */,
 				3161CD8E1D0739C3005F38DE /* LoginViewController.swift in Sources */,
+				314D6DE71D11E64700D3AC43 /* DBManager.swift in Sources */,
 				31BCB4BC1D0B556900D44947 /* ArtistBio.swift in Sources */,
 				31E213931D09CFA600F90B46 /* ArtistImageURL.swift in Sources */,
 				31AB8D211D06069500CA2F30 /* AppDelegate.swift in Sources */,

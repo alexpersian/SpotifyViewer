@@ -7,26 +7,35 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 import Genome
 
-struct SpotifyArtist: MappableObject {
+final class SpotifyArtist: BaseModel {
     
-    let artistName: String
-    let artistID: String
-    var artistFollowers: ArtistFollowers
-    let artistImageURLs: [ArtistImageURL]?
+    dynamic var artistName = ""
+    dynamic var artistID = ""
+    dynamic var artistFollowers: ArtistFollowers?
+    dynamic var artistImageURLs: ArtistImageURL?
     
-    init(map: Map) throws {
+    required init() {
+        super.init()
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
+    
+    required init(map: Map) throws {
+        try super.init(map: map)
+        
         artistName = try map.extract("name")
         artistID = try map.extract("id")
         artistFollowers = try map.extract("followers")
         artistImageURLs = try map.extract("images")
-    }
-    
-    func sequence(map: Map) throws {
-        try artistName ~> map["name"]
-        try artistID ~> map["id"]
-        try artistFollowers ~> map["followers"]
-        try artistImageURLs ~> map["images"]
     }
 }

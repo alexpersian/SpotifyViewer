@@ -8,16 +8,28 @@
 
 import Foundation
 import Genome
+import Realm
+import RealmSwift
 
-struct ArtistImageURL: MappableObject {
+final class ArtistImageURL: BaseModel {
     
-    let artistImageURL: String
+    dynamic var artistImageURL = ""
     
-    init(map: Map) throws {
-        artistImageURL = try map.extract("url")
+    required init() {
+        super.init()
     }
     
-    func sequence(map: Map) throws {
-        try artistImageURL ~> map["url"]
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
+    
+    required init(map: Map) throws {
+        try super.init(map: map)
+        
+        artistImageURL = try map.extract("url")
     }
 }

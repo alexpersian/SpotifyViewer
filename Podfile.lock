@@ -2,14 +2,22 @@ PODS:
   - Genome (2.0.4):
     - PureJsonSerializer (~> 1.0.0)
   - PureJsonSerializer (1.0.2)
+  - Realm (1.0.0):
+    - Realm/Headers (= 1.0.0)
+  - Realm/Headers (1.0.0)
+  - RealmSwift (1.0.0):
+    - Realm (= 1.0.0)
 
 DEPENDENCIES:
   - Genome (~> 2.0.0)
+  - RealmSwift
 
 SPEC CHECKSUMS:
   Genome: ee22f71d87eefac0f622f77e75d1fef7f7fa12e7
   PureJsonSerializer: 81d6bc0e21ed4b837193279aa3d29981f75f9057
+  Realm: e15cd8e7c11d3e576f628ba0b7cb855269b4991c
+  RealmSwift: 3229306d020d96f83b335f87a0dcbf2cef0e6a2b
 
-PODFILE CHECKSUM: 410e3ead28c076a095c6a784228752a93d34e8e1
+PODFILE CHECKSUM: 1938c8acdc39b7a8fffd6887e65b8191c24745cb
 
 COCOAPODS: 1.0.1

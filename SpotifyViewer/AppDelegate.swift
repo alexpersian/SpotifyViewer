@@ -20,18 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let kRedirectURL = "intrepid-spotify-viewer-login://callback"
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-//        SPTAuth.defaultInstance().clientID = kClientId
-//        SPTAuth.defaultInstance().redirectURL = NSURL(string: kRedirectURL)
-//        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
-//        
-//        if SPTAuth.defaultInstance().session == nil {
-//            
-//        }
-//        
-//        let loginURL = SPTAuth.defaultInstance().loginURL
-//        UIApplication.sharedApplication().openURL(loginURL)
-        
         return true
     }
 
@@ -55,42 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        
-        if (SPTAuth.defaultInstance().canHandleURL(url)) {
-            SPTAuth.defaultInstance().handleAuthCallbackWithTriggeredAuthURL(url, callback: { (error, session) in
-                if (error != nil) {
-                    print("*** Auth error: \(error)")
-                    return
-                }
-            })
-        }
-        return false
-    }
-    
-    func playUsingSession(session: SPTSession) {
-        if (player == nil) {
-            player = SPTAudioStreamingController(clientId: SPTAuth.defaultInstance().clientID)
-        }
-        
-        player!.loginWithSession(session, callback: { (error) in
-            if (error != nil) {
-                print("*** Logging in resulted in error: \(error)")
-                return
-            }
-            
-            print(session.isValid())
-            let trackURI = NSURL(string: "spotify:track:5Ll49agi6M3BQdSSGRQ8Hl")
-            
-            self.player!.playURI(trackURI, callback: { (error) in
-                if (error != nil) {
-                    print("*** Starting playback got error: \(error)")
-                    return
-                }
-            })
-        })
     }
 }
 

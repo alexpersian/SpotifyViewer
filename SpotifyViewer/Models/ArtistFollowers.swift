@@ -8,16 +8,28 @@
 
 import Foundation
 import Genome
+import Realm
+import RealmSwift
 
-struct ArtistFollowers: MappableObject {
+final class ArtistFollowers: BaseModel {
     
-    let numberOfFollowers: Int
+    dynamic var numberOfFollowers = 0
     
-    init(map: Map) throws {
-        numberOfFollowers = try map.extract("total")
+    required init() {
+        super.init()
     }
     
-    func sequence(map: Map) throws {
-        try numberOfFollowers ~> map["total"]
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
+    
+    required init(map: Map) throws {
+        try super.init(map: map)
+        
+        numberOfFollowers = try map.extract("total")
     }
 }

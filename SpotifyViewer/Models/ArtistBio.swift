@@ -8,19 +8,30 @@
 
 import Foundation
 import Genome
+import Realm
+import RealmSwift
 
-struct ArtistBio: MappableObject {
+final class ArtistBio: BaseModel {
     
-    let bioSummary: String
-    let bioContent: String
+    dynamic var bioSummary = ""
+    dynamic var bioContent = ""
     
-    init(map: Map) throws {
-        bioSummary = try map.extract("summary")
-        bioContent = try map.extract("content")
+    required init() {
+        super.init()
     }
     
-    func sequence(map: Map) throws {
-        try bioSummary ~> map["summary"]
-        try bioContent ~> map["content"]
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
+    
+    required init(map: Map) throws {
+        try super.init(map: map)
+        
+        bioSummary = try map.extract("summary")
+        bioContent = try map.extract("content")
     }
 }

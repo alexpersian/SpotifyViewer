@@ -51,13 +51,13 @@ class DetailViewController: UIViewController {
         artistName.text = artist.artistName
         let numFormatter = NSNumberFormatter()
         numFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        guard let followerNumber = numFormatter.stringFromNumber(artist.artistFollowers.numberOfFollowers) else { return }
+        guard let followerNumber = numFormatter.stringFromNumber(artist.artistFollowers!.numberOfFollowers) else { return }
         artistFollowers.text = artistFollowers.text?.stringByAppendingString("  \(followerNumber)")
     }
     
     func loadArtistImage() {
         guard artist != nil,
-            let imageURL = artist.artistImageURLs?.first?.artistImageURL else { return }
+            let imageURL = artist.artistImageURLs?.artistImageURL else { return }
         SARequestManager.sharedManager.getArtistImageFromURL(imageURL) { result in
             switch result {
             case .Success(let image):

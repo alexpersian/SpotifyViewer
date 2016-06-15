@@ -8,6 +8,7 @@ target 'SpotifyViewer' do
   # Pods for SpotifyViewer
 
   pod 'Genome', '~> 2.0.0'
+  pod 'RealmSwift'
 
   target 'SpotifyViewerTests' do
     inherit! :search_paths
