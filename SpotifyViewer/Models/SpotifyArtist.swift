@@ -15,7 +15,7 @@ final class SpotifyArtist: BaseModel {
     
     dynamic var artistName = ""
     dynamic var artistID = ""
-    dynamic var artistFollowers: ArtistFollowers?
+    dynamic var artistFollowers: Int = 0
     dynamic var artistImageURLs: ArtistImageURL?
     
     required init() {
@@ -35,7 +35,7 @@ final class SpotifyArtist: BaseModel {
         
         artistName = try map.extract("name")
         artistID = try map.extract("id")
-        artistFollowers = try map.extract("followers")
-        artistImageURLs = try map.extract("images")
+        artistFollowers = try map.extract("followers.total")
+        artistImageURLs = try map.extract("images[0].total")
     }
 }

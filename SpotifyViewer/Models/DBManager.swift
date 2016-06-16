@@ -37,6 +37,8 @@ final class DBManager {
             realm.deleteAll()
         }
         
+        print("\(json)")
+        
         guard let followersJson = json["followers"],
             let artistIdJson = json["id"],
             let imagesJson = json["images"],
@@ -48,7 +50,7 @@ final class DBManager {
         let followers = try ArtistFollowers(js: followersJson)
         let artistId = artistIdJson.stringValue!
         let imageURLs = try [ArtistImageURL](js: imagesJson)
-        let artistName = artistNameJson.stringValue!
+        let artistName = [artistNameJson.stringValue!]
         
 //        try [followers, artistId, imageURLs, artistName].forEach(save)
     }

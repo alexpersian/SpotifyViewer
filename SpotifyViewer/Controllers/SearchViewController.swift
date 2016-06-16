@@ -65,6 +65,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedArtistIndex = indexPath.row
+        
+        let selectedArtist = spotifyArtists[selectedArtistIndex]
+        try? SARequestManager.sharedManager.save([selectedArtist])
+        
         performSegueWithIdentifier("SearchToDetailSegue", sender: nil)
     }
     
