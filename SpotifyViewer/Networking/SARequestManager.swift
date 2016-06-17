@@ -53,9 +53,9 @@ class SARequestManager: NSObject {
                     var artists = [SpotifyArtist]()
                     let jsonFromData = try Json.deserialize(data)
                     
-                    guard let rawArtists = jsonFromData["artists"]?["items"] else { print("Failure to parse JSON"); return }
+                    guard let rawArtists = jsonFromData["artists"]?["items"]?.arrayValue else { print("Failure to parse JSON"); return }
                     
-                    for artist in rawArtists.arrayValue! {
+                    for artist in rawArtists {
                         let newArtist = try SpotifyArtist(js: artist)
                         artists.append(newArtist)
                     }

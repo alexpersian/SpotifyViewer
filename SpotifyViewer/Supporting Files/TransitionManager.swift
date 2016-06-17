@@ -13,38 +13,39 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
     var presenting = true
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let container = transitionContext.containerView()
-        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
-        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
+        guard let container = transitionContext.containerView(),
+            let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey),
+            let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
+        else { return }
         
-        let offScreenRight = CGAffineTransformMakeTranslation(container!.frame.width, 0)
-        let offScreenLeft = CGAffineTransformMakeTranslation(-container!.frame.width, 0)
+        let offScreenRight = CGAffineTransformMakeTranslation(container.frame.width ?? 0, 0)
+        let offScreenLeft = CGAffineTransformMakeTranslation(-container.frame.width ?? 0, 0)
         
         if self.presenting {
-            toView?.transform = offScreenRight
+            toView.transform = offScreenRight
         } else {
-            toView?.transform = offScreenLeft
+            toView.transform = offScreenLeft
         }
         
-        container!.addSubview(toView!)
-        container!.addSubview(fromView!)
+        container.addSubview(toView)
+        container.addSubview(fromView)
         
         let duration = self.transitionDuration(transitionContext)
         
         UIView.animateWithDuration(duration, animations: { 
             if self.presenting {
-                fromView?.transform = offScreenLeft
+                fromView.transform = offScreenLeft
             } else {
-                fromView?.transform = offScreenRight
+                fromView.transform = offScreenRight
             }
-            toView?.transform = CGAffineTransformIdentity
+            toView.transform = CGAffineTransformIdentity
             }, completion: { finished in
                 transitionContext.completeTransition(true)
         })
     }
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.4
+        return 0.3
     }
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
