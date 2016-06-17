@@ -30,9 +30,6 @@ enum TrackResult {
 class SARequestManager: NSObject {
     
     static let sharedManager = SARequestManager()
-    
-    let realm = try! Realm()
-    
     private override init() {}
     
     private let session: NSURLSession = {
@@ -40,14 +37,6 @@ class SARequestManager: NSObject {
         let session = NSURLSession(configuration: sessionCongig)
         return session
     }()
-    
-    func save<T: BaseModel>(objects: [T]) throws {
-        try realm.write({
-            objects.forEach({ (object) in
-                object.createOrUpdateInRealm(realm)
-            })
-        })
-    }
     
     func getArtistsWithQuery(query: String, completion: ArtistResult -> Void) {
         let queryString = query.stringByReplacingOccurrencesOfString(" ", withString: "%20")
@@ -72,8 +61,6 @@ class SARequestManager: NSObject {
                     }
                     
                     dispatch_async(dispatch_get_main_queue()) {
-//                        try? save(artists)
-
                         completion(.Success(artists))
                     }
                     

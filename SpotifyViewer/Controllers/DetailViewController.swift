@@ -6,7 +6,7 @@
 //  Copyright © 2016 Alexander Persian. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import AVFoundation
 
 class DetailViewController: UIViewController {
@@ -18,8 +18,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var playArtistSampleButton: UIButton!
     
-    var artist: SpotifyArtist!
-    var player: AVPlayer!
+    var artist: SpotifyArtist?
+    var player = AVPlayer()
     
     override func viewDidLoad() {
         styleArtistImage()
@@ -30,10 +30,6 @@ class DetailViewController: UIViewController {
         loadArtistInformation()
         loadArtistImage()
         loadArtistBio()
-    }
-    
-    func setupGestureRecognizers() {
-        
     }
     
     func styleArtistButton() {
@@ -47,7 +43,7 @@ class DetailViewController: UIViewController {
     }
     
     func loadArtistInformation() {
-        guard artist != nil else { return }
+        guard let artist = artist else { return }
         artistName.text = artist.artistName
         let numFormatter = NSNumberFormatter()
         numFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
@@ -56,21 +52,21 @@ class DetailViewController: UIViewController {
     }
     
     func loadArtistImage() {
-//        guard artist != nil,
-//            let imageURL = artist.artistImageURLs?.artistImageURL else { return }
-//        SARequestManager.sharedManager.getArtistImageFromURL(imageURL) { result in
-//            switch result {
-//            case .Success(let image):
-//                self.artistImage.image = image
-//                self.backgroundImageView.image = image
-//            case .Failure(let error):
-//                print("Error: \(error.localizedDescription)")
-//            }
-//        }
+        guard let artist = artist,
+            let imageURL = artist.artistImageURLs?.artistImageURL else { return }
+        SARequestManager.sharedManager.getArtistImageFromURL(imageURL) { result in
+            switch result {
+            case .Success(let image):
+                self.artistImage.image = image
+                self.backgroundImageView.image = image
+            case .Failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
     
     func loadArtistBio() {
-        guard artist != nil else { return }
+        guard let artist = artist else { return }
         LFRequestManager.sharedManager.getArtistBioWithQuery(artist.artistName) { (result) in
             switch result {
             case .Success(let lfArtistBio):
@@ -82,7 +78,7 @@ class DetailViewController: UIViewController {
     }
     
     func fetchArtistTopTrack() {
-        guard artist != nil else { return }
+        guard let artist = artist else { return }
         SARequestManager.sharedManager.getArtistTopTrackFromID(artist.artistID) { (result) in
             switch result {
             case .Success(let track):
@@ -97,7 +93,6 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func playArtistSample(sender: UIButton) {
-        print("playing artist")
         fetchArtistTopTrack()
     }
 }

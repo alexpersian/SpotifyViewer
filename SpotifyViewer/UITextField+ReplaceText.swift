@@ -6,7 +6,7 @@
 //  Copyright © 2016 Alexander Persian. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UITextView {
     func setTextWithExistingAttributes(text: String) {

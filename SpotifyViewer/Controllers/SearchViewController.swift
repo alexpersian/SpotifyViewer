@@ -14,10 +14,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var spotifyResultsView: UITableView!
     @IBOutlet weak var searchActivityIndicator: UIActivityIndicatorView!
     
-    var spotifySession: SPTSession!
-    var spotifyArtists: [SpotifyArtist]!
-    var selectedArtistIndex = 0
+    var spotifyArtists = [SpotifyArtist]()
     let transitionManager = TransitionManager()
+    var selectedArtistIndex = 0
+    
+    override func viewWillAppear(animated: Bool) {
+        checkForRecentSearches()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,33 +32,39 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "SearchToDetailSegue") {
-            guard spotifyArtists != nil,
+            guard spotifyArtists.count > 0,
                 let detailVC = segue.destinationViewController as? DetailViewController else {
                     print("Artist array is empty")
                     return
             }
             detailVC.artist = spotifyArtists[selectedArtistIndex]
-            
             detailVC.transitioningDelegate = self.transitionManager
         }
     }
     
+    func checkForRecentSearches() {
+        
+        let realmResults = RealmManager.sharedManager.getArtists()
+        for artist in realmResults {
+            spotifyArtists.append(artist as SpotifyArtist)
+        }
+    }
+    
     @IBAction func returnToArtistSearch(segue: UIStoryboardSegue) { }
-
+    
 // MARK: - UITableView
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard spotifyArtists != nil else { return 0 }
         return spotifyArtists.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ArtistCell", forIndexPath: indexPath)
         
-        guard spotifyArtists != nil else { return cell }
+        guard spotifyArtists.count > 0 else { return cell }
         let row = indexPath.row
         cell.textLabel?.text = spotifyArtists[row].artistName
         cell.textLabel?.textColor = UIColor.whiteColor()
@@ -66,8 +75,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedArtistIndex = indexPath.row
         
-        let selectedArtist = spotifyArtists[selectedArtistIndex]
-        try? SARequestManager.sharedManager.save([selectedArtist])
+        do {
+            try RealmManager.sharedManager.save([spotifyArtists[selectedArtistIndex]])
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
         
         performSegueWithIdentifier("SearchToDetailSegue", sender: nil)
     }
@@ -78,9 +90,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchActivityIndicator.startAnimating()
         
         guard let searchQuery = textField.text else { print("yall's text field dun broke"); return true }
-        if self.spotifyArtists != nil {
-            self.spotifyArtists.removeAll()
-        }
+        spotifyArtists.removeAll()
         
         SARequestManager.sharedManager.getArtistsWithQuery(searchQuery, completion: { result in
             switch result {

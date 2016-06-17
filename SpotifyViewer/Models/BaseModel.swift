@@ -25,7 +25,7 @@ class BaseModel: RealmSwift.Object, MappableObject {
     required init(map: Map) throws {
         super.init()
         
-        id = try map.extract("id")
+        id = try map.extract("id") ?? String().randomAlphaNumericString(10)
     }
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {

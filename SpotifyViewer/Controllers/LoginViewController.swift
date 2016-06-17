@@ -11,21 +11,8 @@ import SafariServices
 
 class LoginViewController: UIViewController {
     
-    let kClientId = "5d6321d41dc9487189b7f0b28a585190"
-    let kRedirectURL = "intrepid-spotify-viewer-login://callback"
-    
-    var spotifyArtists: [SpotifyArtist]!
-    
     @IBAction func loginToSpotify(sender: UIButton) {
         
         self.performSegueWithIdentifier("LoginToSearchSegue", sender: sender)
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "LoginToSearchSegue") {
-            guard let searchVC = segue.destinationViewController as? SearchViewController else { return }
-            searchVC.spotifySession = SPTSession()
-            searchVC.spotifyArtists = self.spotifyArtists
-        }
     }
 }

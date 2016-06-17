@@ -36,6 +36,6 @@ final class SpotifyArtist: BaseModel {
         artistName = try map.extract("name")
         artistID = try map.extract("id")
         artistFollowers = try map.extract("followers.total")
-        artistImageURLs = try map.extract("images[0].total")
+        artistImageURLs = try map.extract("images").first
     }
 }
